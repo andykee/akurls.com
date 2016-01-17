@@ -1,0 +1,83 @@
+<!-- render an empty row -->
+{% macro emptyrow() -%}
+<tr><td colspan="3">&nbsp;</td></tr>
+{%- endmacro %}
+
+
+<!-- render a single column -->
+{% macro column(feed) -%}
+<ul>
+  {% for post in feed %}
+    {%if post.tooltip %}
+    <div class="has_tooltip">
+    {% endif %}
+    <li>
+      {% if post.comments %}
+      <a class="clink" href="{{post.comments}}">
+        <i class="fa fa-comment-o"></i>
+      </a>
+      {% endif %}
+      <a href="{{post.link}}">{{post.title}}</a>
+    </li>
+    {% if post.tooltip %}
+    </div>
+    <div id="tooltip" class="hidden">
+      <img src="{{post.tooltip.img_src}}" width="225"/><br />
+      {{post.tooltip.text}}
+    </div>
+    {% endif %}
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+
+<!-- render three cols from one feed -->
+{% macro full_row(data) -%}
+<tr>
+  <td colspan="3" class="feed_title">
+    <a href="{{data.url}}">{{data.name}}</a>
+  </td>
+</tr>
+<tr>
+  <td valign="top">
+    {{ column(data.feed[0:10]) }}
+  </td>
+
+  <td width="310" valign="top">
+    {{ column(data.feed[10:20]) }}
+  </td>
+
+  <td width="320" valign="top">
+    {{ column(data.feed[20:30]) }}
+  </td>
+</tr>
+{%- endmacro %}
+
+
+<!-- render three cols from three feeds -->
+{% macro row(data1, data2, data3) -%}
+<tr>
+  <td width ="320" class="feed_title">
+    <a href="{{data1.url}}">{{data1.name}}</a>
+  </td>
+  <td width ="320" class="feed_title">
+    <a href="{{data2.url}}">{{data2.name}}</a>
+  </td>
+  <td class="feed_title">
+    <a href="{{data3.url}}">{{data3.name}}</a>
+  </td>
+</tr>
+<tr>
+  <td valign="top">
+    {{ column(data1.feed) }}
+  </td>
+
+  <td valign="top">
+    {{ column(data2.feed) }}
+  </td>
+
+  <td valign="top" style="margin-right: 5px">
+    {{ column(data3.feed) }}
+  </td>
+</tr>
+{%- endmacro %}

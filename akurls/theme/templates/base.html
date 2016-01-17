@@ -1,0 +1,129 @@
+{% from 'macros.html' import row, full_row, emptyrow, column %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="weather-icons.css" type="text/css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+
+
+  <title>{{ SITETITLE }}</title>
+</head>
+
+<body>
+
+<div id="header">
+<div id="header_content">
+<p class="headerleft"><span id="date"></span></p>
+<p class="headerright"><span id="weather"></span></p>
+<div style="clear: both;"></div>
+</div>
+</div>
+
+
+<table width="960" border="0" align="center">
+
+
+{{ row(gearpatrol, uncrate, acquire) }}
+{{ emptyrow() }}
+{{ full_row(hackernews) }}
+{{ emptyrow() }}
+{{ row(proggit, wired, daringfireball) }}
+{{ emptyrow() }}
+{{ row(adventurejournal, pinkbike, mgoblog) }}
+{{ emptyrow() }}
+{{ row(seriouseats, foodrepublic, eater) }}
+{{ emptyrow() }}
+{{ emptyrow() }}
+
+</table>
+</body>
+</html>
+
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script>
+    var date = moment().format("dddd, MMMM D, YYYY");
+    $('#date').append(date);
+</script>
+
+<script>
+$(document).ready(function(){
+    navigator.geolocation.getCurrentPosition(handle_geolocation_query);
+});
+
+function handle_geolocation_query(position){
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var api_key = '45ec156ff1e36f09f428067c89ee13fa';
+    var forecastioURL = 'https://api.forecast.io/forecast/' + api_key + '/' + lat + ',' + lon;
+    $.ajax({url: forecastioURL,
+            dataType: 'jsonp',
+            success: function(forecast) {
+                var icon_pointer = forecast.currently.icon;
+                var summary = forecast.currently.summary;
+                var temp = Math.round(forecast.currently.temperature);
+
+                if (icon_pointer == 'clear-day') {
+                    var icon = '<i class="wi wi-day-sunny"></i>'
+                }
+                else if (icon_pointer == 'clear-night') {
+                    var icon = '<i class="wi wi-night-clear"></i>'
+                }
+                else if (icon_pointer == 'rain') {
+                    var icon = '<i class="wi wi-rain"></i>'
+                }
+                else if (icon_pointer == 'snow') {
+                    var icon = '<i class="wi wi-snow"></i>'
+                }
+                else if (icon_pointer == 'sleet') {
+                    var icon = '<i class="wi wi-sleet"></i>'
+                }
+                else if (icon_pointer == 'wind') {
+                    var icon = '<i class="wi wi-strong-wind"></i>'
+                }
+                else if (icon_pointer == 'fog') {
+                    var icon = '<i class="wi wi-fog"></i>'
+                }
+                else if (icon_pointer == 'cloudy') {
+                    var icon = '<i class="wi wi-cloud"></i>'
+                }
+                else if (icon_pointer == 'partly-cloudy-day') {
+                    var icon = '<i class="wi wi-day-sunny-overcast"></i>'
+                }
+                else if (icon_pointer == 'partly-cloudy-night') {
+                    var icon = '<i class="wi wi-night-partly-cloudy"></i>'
+                }
+                else {
+                    var icon = ''
+                }
+
+                $('#weather').append(icon + '  ' + temp + '&deg; F');
+            }
+        });
+}
+</script>
+
+<script src='http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js'></script>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
+
+<script>
+$(document).ready(function() {
+$('.has_tooltip').each(function() {
+    $(this).qtip({
+        content: $(this).next('div'),
+        position: {
+             target: 'mouse', // Track the mouse as the positioning target
+             adjust: { x: 5, y: 5 }, // Offset it slightly from under the mouse
+             viewport: $(window) //Attempt to keep the tooltip within the browser window
+        },
+        style: { classes: 'akqtip' }
+    });
+});
+});
+</script>
