@@ -16,7 +16,7 @@ def hackernews(name = 'hackernews',
         comments = entry['comments'].encode('ascii','xmlcharrefreplace')
 
         if tooltip is True:
-            #soup = BeautifulSoup(entry['summary'],'parser.html')
+            #soup = BeautifulSoup(entry['summary'],'html.parser')
             #img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             #text = soup.get_text().encode('ascii','xmlcharrefreplace')
             #tt = {'img_src':img_src, 'text':text}

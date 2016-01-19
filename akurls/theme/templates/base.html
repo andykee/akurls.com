@@ -3,19 +3,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" type="text/css" />
-  <link rel="stylesheet" href="weather-icons.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="{{ SITEURL }}/css/weather-icons.css" type="text/css" />
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
-
-
   <title>{{ SITETITLE }}</title>
 </head>
 
 <body>
-
 <div id="header">
 <div id="header_content">
 <p class="headerleft"><span id="date"></span></p>
@@ -24,14 +20,13 @@
 </div>
 </div>
 
-
 <table width="960" border="0" align="center">
-
 
 {{ row(gearpatrol, uncrate, acquire) }}
 {{ emptyrow() }}
 {{ full_row(hackernews) }}
 {{ emptyrow() }}
+{#
 {{ row(proggit, wired, daringfireball) }}
 {{ emptyrow() }}
 {{ row(adventurejournal, pinkbike, mgoblog) }}
@@ -39,6 +34,7 @@
 {{ row(seriouseats, foodrepublic, eater) }}
 {{ emptyrow() }}
 {{ emptyrow() }}
+#}
 
 </table>
 </body>

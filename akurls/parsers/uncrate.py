@@ -15,7 +15,7 @@ def uncrate(name = 'uncrate',
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            soup = BeautifulSoup(entry['content'][0]['value'],'parser.html')
+            soup = BeautifulSoup(entry['content'][0]['value'],'html.parser')
             img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             content = soup.get_text()
             head, sep, tail = content.partition('...')

@@ -16,7 +16,7 @@ def mgoblog(name = 'mgoblog',
 
         if tooltip is True:
             pass
-            #soup = BeautifulSoup(entry['content'][0]['value'],'parser.html')
+            #soup = BeautifulSoup(entry['content'][0]['value'],'html.parser')
             #img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             #content = soup.get_text()
             #head, sep, tail = content.partition('...')

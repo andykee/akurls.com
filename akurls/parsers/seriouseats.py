@@ -15,10 +15,10 @@ def seriouseats(name = 'seriouseats',
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            soup = BeautifulSoup(entry['content'][0]['value'],'parser.html')
+            soup = BeautifulSoup(entry['content'][0]['value'],'html.parser')
             img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             content = soup.get_text()
-            text = soup.get_text()..encode('ascii','xmlcharrefreplace')
+            text = soup.get_text().encode('ascii','xmlcharrefreplace')
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:

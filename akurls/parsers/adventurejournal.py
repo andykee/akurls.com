@@ -15,7 +15,7 @@ def adventurejournal(name = 'adventure journal',
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            soup = BeautifulSoup(entry['summary_detail']['value'],'parser.html')
+            soup = BeautifulSoup(entry['summary_detail']['value'],'html.parser')
             img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             text = soup.get_text() + '...'
             text = text.encode('ascii','xmlcharrefreplace')

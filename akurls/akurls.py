@@ -1,16 +1,45 @@
 from __future__ import print_function
 
+import socket
+import boto3
+
 from jinja2 import Environment, FileSystemLoader
 
 from config import *
 import parsers
 
-env = Environment(loader=FileSystemLoader('theme/templates'))
-template = env.get_template('base.html')
+def app(event,context):
+
+    # Set global socket timeout
+    socket.setdefaulttimeout(TIMEOUT)
+    
+    env = Environment(loader=FileSystemLoader('theme/templates'))
+    template = env.get_template('base.html')
+    
+    gp = parsers.gearpatrol()
+    uc = parsers.uncrate()
+    aq = parsers.acquire()
+    hn = parsers.hackernews()
+    aj = parsers.adventurejournal()
+    
+    content = {
+        'gearpatrol' : gp,
+        'uncrate' : uc,
+        'acquire' : aq,
+        'hackernews' : hn,
+        'adventurejournal' : aj
+    }
+
+    html = template.render(content)
+    
+    s3 = boto3.resource('s3')
+    s3.Object(S3_BUCKET, 'index.html').put(Body=html,
+                                           ACL='public-read',
+                                           ContentType='text/html')
+
+
+    return 'Donezo!'
+# Now we have the HTML, copy it and the stuff in the static directory to AWS
 
 
 
-
-gp = parsers.gearpatrol()
-
-print(gp)

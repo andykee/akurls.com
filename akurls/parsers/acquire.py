@@ -5,7 +5,7 @@ def acquire(name = 'acquire',
         siteurl = 'http://www.acquiremag.com',
         feedurl = 'http://feeds.feedburner.com/acquire',
         limit = 10,
-        tooltip = True):
+        tooltip = False):
 
     d = feedparser.parse(feedurl)
     feed = []
@@ -15,7 +15,7 @@ def acquire(name = 'acquire',
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            soup = BeautifulSoup(entry['summary_detail']['value'],'parser.html')
+            soup = BeautifulSoup(entry['summary_detail']['value'],'html.parser')
             img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             text = soup.p.text.encode('ascii','xmlcharrefreplace')
             tt = {'img_src':img_src, 'text':text}
