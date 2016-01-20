@@ -5,5 +5,6 @@ from hackernews import hackernews
 from gearpatrol import gearpatrol
 from mgoblog import mgoblog
 from pinkbike import pinkbike
-from seriouseats import seriouseats
 from uncrate import uncrate
+from reddit import reddit
+from eaterla import eaterla
