@@ -1,9 +1,7 @@
 # akurls.com
----
 akurls is a link aggregator that is specifically designed to cut down on the consumption of web content. You are forced to choose between seeing the most recent 10 or 30 articles from a site. Once it't no longer in the top 10 (or 30), it's gone. akurls runs on AWS Lambda and S3
 
 ## Installation
----
 1. Download the akurls source. Create a virtualenv, activate it, and install all dependencies by running `pip install -r requirements.txt`.
 
 2. [Set up a static website using a custom domain](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) Make a note of the region you create your S3 buckets in - your Lambda region will need to match this later.
