@@ -14,6 +14,15 @@ rm -r tmp/easy_install.*
 rm -r tmp/pip
 rm -r tmp/pkg_resources
 rm -r tmp/setuptools
+rm -r tmp/pyasn1
+rm -r tmp/rsa
+rm -r tmp/jmespath
+rm -r tmp/six
+rm -r tmp/python-dateutil
+rm -r tmp/docutils
+rm -r tmp/botocore
+rm -r tmp/colorama
+rm -r tmp/awscli
 
 find tmp -name "*.pyc" -delete
 
