@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd akurls
 mkdir tmp
 cp akurls.py tmp
 cp config.py tmp
