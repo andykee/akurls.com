@@ -16,18 +16,17 @@ def app(event,context):
     env = Environment(loader=FileSystemLoader('theme/templates'))
     template = env.get_template('base.html')
     
-    gp = parsers.gearpatrol()
-    uc = parsers.uncrate()
-    aq = parsers.acquire()
-    hn = parsers.hackernews()
-    aj = parsers.adventurejournal()
-    
     content = {
-        'gearpatrol' : gp,
-        'uncrate' : uc,
-        'acquire' : aq,
-        'hackernews' : hn,
-        'adventurejournal' : aj
+        'gearpatrol' : parsers.gearpatrol(),
+        'uncrate' : parsers.uncrate(),
+        'acquire' : parsers.acquire(),
+        'hackernews' : parsers.hackernews(),
+        'proggit' : parsers.reddit('proggit','programming'),
+        'daringfireball' : parsers.daringfireball(),
+        'eaterla' : parsers.eaterla(),
+        'adventurejournal' : parsers.adventurejournal(),
+        'pinkbike' : parsers.pinkbike(),
+        'mgoblog' : parsers.mgoblog()
     }
 
     html = template.render(content)
