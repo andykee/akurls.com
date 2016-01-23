@@ -1,11 +1,10 @@
 import feedparser
-from bs4 import BeautifulSoup
 
 def acquire(name = 'acquire',
         siteurl = 'http://www.acquiremag.com',
         feedurl = 'http://feeds.feedburner.com/acquire',
         limit = 10,
-        tooltip = False):
+        tooltip = True):
 
     d = feedparser.parse(feedurl)
     feed = []
@@ -15,9 +14,8 @@ def acquire(name = 'acquire',
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            soup = BeautifulSoup(entry['summary_detail']['value'],'html.parser')
-            img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
-            text = soup.p.text.encode('ascii','xmlcharrefreplace')
+            text = entry['summary'].encode('ascii','xmlcharrefreplace')
+            img_src = entry['media_thumbnail'][0]['url'].encode('ascii','xmlcharrefreplace')
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:

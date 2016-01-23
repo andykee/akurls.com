@@ -22,7 +22,6 @@ def app(event,context):
         'acquire' : parsers.acquire(),
         'hackernews' : parsers.hackernews(),
         'proggit' : parsers.reddit('proggit','programming'),
-        'reddit' : parsers.reddit('reddit','all'),
         'daringfireball' : parsers.daringfireball(),
         'eaterla' : parsers.eaterla(),
         'adventurejournal' : parsers.adventurejournal(),
