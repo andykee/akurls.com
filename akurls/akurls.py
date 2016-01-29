@@ -38,7 +38,5 @@ def app(event,context):
 
 
     return 'Donezo!'
-# Now we have the HTML, copy it and the stuff in the static directory to AWS
-
 
 
