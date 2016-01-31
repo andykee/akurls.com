@@ -21,7 +21,7 @@ def app(event,context):
         'uncrate' : parsers.uncrate(),
         'acquire' : parsers.acquire(),
         'hackernews' : parsers.hackernews(),
-        'reddit' : parsers.reddit('reddit','all',lim=30),
+        #'reddit' : parsers.reddit('reddit','all',lim=30),
         'proggit' : parsers.reddit('proggit','programming'),
         'daringfireball' : parsers.daringfireball(),
         'eaterla' : parsers.eaterla(),
