@@ -28,27 +28,21 @@ akurls is a link aggregator that is specifically designed to cut down on the con
 
 6. Create an AWS Lambda function:
 
-* From the AWS console, select *Lambda*
+    * From the AWS console, select *Lambda*
 
-* Select *Create a Lambda function*
+    * Select *Create a Lambda function*
 
-* Skip blueprint selection
+    * Skip blueprint selection
 
-* Configure the function with the following settings and then select *Next*:
+    * Configure the function with the following settings and then select *Next*:
 
-    * Name: akurls
-    * Description: akurls Lambda function
-    * Runtime: Python 2.7
-    * Lambda function code: upload zip created by running `makedp`
-    * Handler: akurls.app
-    * Role: `lambda_s3_execution`
-    * Timeout: 30 sec
+        * Name: akurls
+        * Description: akurls Lambda function
+        * Runtime: Python 2.7
+        * Lambda function code: upload zip created by running `makedp`
+        * Handler: akurls.app
+        * Role: `lambda_s3_execution`
+        * Timeout: 30 sec
 
 7. Configure a [Scheduled Event](http://docs.aws.amazon.com/lambda/latest/dg/with-scheduled-events.html) to initiate the Lambda Function
 
-
-
-
-### Rewrite this whole thing as a publish.py script using boto!!!
-
- 

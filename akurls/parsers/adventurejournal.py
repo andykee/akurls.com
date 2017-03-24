@@ -5,7 +5,7 @@ def adventurejournal(name = 'adventure journal',
         siteurl = 'http://www.adventure-journal.com',
         feedurl = 'http://feeds.feedburner.com/adventure-journal',
         limit = 10,
-        tooltip = True):
+        tooltip = False):
 
     d = feedparser.parse(feedurl)
     feed = []
