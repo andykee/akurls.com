@@ -17,7 +17,7 @@ def gearpatrol(name = 'gear patrol',
         if tooltip is True:
             head, sep, tail = entry['summary'].partition('...')
             soup = BeautifulSoup(head, 'html.parser')
-            img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
+            img_src = entry['media_content'][0]['url']
             text = soup.p.text.encode('ascii','xmlcharrefreplace')
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})

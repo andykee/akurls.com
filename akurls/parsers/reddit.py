@@ -8,7 +8,7 @@ def reddit(name,
     siteurl = 'http://www.reddit.com/r/' + subreddit
 
     feed = []
-    r = praw.Reddit(user_agent = 'akurls.com')
+    r = praw.Reddit(user_agent='akurls')
     s = r.get_subreddit(subreddit)
     for submission in s.get_hot(limit = lim):
         title = submission.title.encode('ascii','xmlcharrefreplace')
