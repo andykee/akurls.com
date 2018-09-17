@@ -8,7 +8,7 @@ setup(
         author_email='andykee@gmail.com',
         packages=['akurls'],
         install_requires=[
-            'BeautifulSoup >= 4.4.1', 
+            'BeautifulSoup4 >= 4.4.1', 
             'feedparser >= 5.2.1',
             'Jinja >= 2.8',
             'MarkupSafe >= 0.23',
