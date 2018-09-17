@@ -1,3 +1,4 @@
+import os
 import socket
 import boto3
 
@@ -10,8 +11,10 @@ def app():
 
     # Set global socket timeout
     socket.setdefaulttimeout(TIMEOUT)
-    
-    env = Environment(loader=FileSystemLoader('theme/templates'))
+
+    MY_DIR = os.path.dirname(__file__)
+
+    env = Environment(loader=FileSystemLoader(os.path.join(MY_DIR, 'theme/templates')))
     template = env.get_template('base.html')
     
     content = {

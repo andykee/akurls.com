@@ -19,7 +19,7 @@ def uncrate(name = 'uncrate',
             img_src = soup.img['src'].encode('ascii','xmlcharrefreplace')
             content = soup.get_text()
             head, sep, tail = content.partition('...')
-            text = head + '...'.encode('ascii','xmlcharrefreplace')
+            text = head + '...'
             text = text.encode('ascii','xmlcharrefreplace')
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
