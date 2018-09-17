@@ -13,9 +13,9 @@ def reddit(name,
             user_agent='akurls')
     s = r.subreddit(subreddit)
     for submission in s.hot(limit = lim):
-        title = submission.title.encode('ascii','xmlcharrefreplace')
-        link = submission.url.encode('ascii','xmlcharrefreplace')
-        comments = submission.permalink.encode('ascii','xmlcharrefreplace')
+        title = submission.title
+        link = submission.url
+        comments = submission.permalink
         feed.append({'title':title, 'link':link, 'comments':comments})
 
     return {'name':name, 'url':siteurl, 'feed':feed[0:lim]}

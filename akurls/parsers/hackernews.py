@@ -10,10 +10,10 @@ def hackernews(name = 'hackernews',
     d = feedparser.parse(feedurl)
     feed = []
     for entry in d['entries']:
-        title = entry['title'].encode('ascii','xmlcharrefreplace')
-        link = entry['link'].encode('ascii','xmlcharrefreplace')
+        title = entry['title']
+        link = entry['link']
         published = entry['published']  # can also get published_parsed
-        comments = entry['comments'].encode('ascii','xmlcharrefreplace')
+        comments = entry['comments']
 
         if tooltip is True:
             #soup = BeautifulSoup(entry['summary'],'html.parser')
