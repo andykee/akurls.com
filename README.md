@@ -10,9 +10,10 @@ akurls is a link aggregator that is specifically designed to cut down on the con
    sudo apt-get update
    sudo apt-get install pip3
    
-3. Clone akurls.com
+3. Install akurls.com
 
-   git clone https://github.com/andykee/akurls.com.git
+   pip install git+http://github.com/andykee/akurls.com --user
+
 
 
 

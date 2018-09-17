@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import socket
 import boto3
 
@@ -8,7 +6,7 @@ from jinja2 import Environment, FileSystemLoader
 from config import *
 import parsers
 
-def app(event,context):
+def app():
 
     # Set global socket timeout
     socket.setdefaulttimeout(TIMEOUT)
@@ -38,6 +36,6 @@ def app(event,context):
                                            ContentType='text/html')
 
 
-    return 'Donezo!'
-
+if __name__ == __main__:
+    app()
 
