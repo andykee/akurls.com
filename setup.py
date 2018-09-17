@@ -10,7 +10,7 @@ setup(
         install_requires=[
             'BeautifulSoup4 >= 4.4.1', 
             'feedparser >= 5.2.1',
-            'Jinja >= 2.8',
+            'Jinja2 >= 2.8',
             'MarkupSafe >= 0.23',
             'wheel >= 0.24.0',
             'praw >= 3.6.1'],
