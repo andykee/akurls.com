@@ -1,6 +1,21 @@
 # akurls.com
 akurls is a link aggregator that is specifically designed to cut down on the consumption of web content. You are forced to choose between seeing the most recent 10 or 30 articles from a site. Once it't no longer in the top 10 (or 30), it's gone. akurls runs on AWS Lambda and S3
 
+1. Make sure Python 3.x is installed:
+
+   which python3
+   
+2. Install pip3:
+
+   sudo apt-get update
+   sudo apt-get install pip3
+   
+3. Clone akurls.com
+
+   git clone https://github.com/andykee/akurls.com.git
+
+
+
 ## Installation
 1. Download the akurls source. Create a virtualenv, activate it, and install all dependencies by running `pip install -r requirements.txt`.
 
