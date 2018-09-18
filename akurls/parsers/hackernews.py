@@ -10,7 +10,7 @@ def hackernews(name = 'hackernews',
     d = feedparser.parse(feedurl)
     feed = []
     for entry in d['entries']:
-        title = entry['title']
+        title = entry['title'].encode('ascii','xmlcharrefreplace').decode('utf8')
         link = entry['link']
         published = entry['published']  # can also get published_parsed
         comments = entry['comments']
