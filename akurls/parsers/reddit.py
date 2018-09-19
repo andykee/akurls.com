@@ -13,7 +13,7 @@ def reddit(name,
             user_agent='akurls')
     s = r.subreddit(subreddit)
     for submission in s.hot(limit = lim):
-        title = submission.title
+        title = submission.title.encode('ascii','xmlcharrefreplace').decode('utf8')
         link = submission.url
         comments = submission.permalink
         feed.append({'title':title, 'link':link, 'comments':comments})
