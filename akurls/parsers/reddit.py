@@ -15,7 +15,7 @@ def reddit(name,
     for submission in s.hot(limit = lim):
         title = submission.title.encode('ascii','xmlcharrefreplace').decode('utf8')
         link = submission.url
-        comments = submission.permalink
+        comments = 'http://reddit.com' + submission.permalink
         feed.append({'title':title, 'link':link, 'comments':comments})
 
     return {'name':name, 'url':siteurl, 'feed':feed[0:lim]}
