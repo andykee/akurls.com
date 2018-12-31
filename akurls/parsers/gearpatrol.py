@@ -19,7 +19,7 @@ def gearpatrol(name = 'gear patrol',
             head, sep, tail = entry['summary'].partition('...')
             soup = BeautifulSoup(head, 'html.parser')
             img_src = entry['media_content'][0]['url']
-            text = soup.p.text
+            text = soup.text
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:
