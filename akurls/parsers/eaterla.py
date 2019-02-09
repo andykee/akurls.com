@@ -10,9 +10,9 @@ def eaterla(name = 'eater la',
     feed = []
     
     for entry in d['entries']:
-        title = entry['title'].encode('ascii','xmlcharrefreplace')
-        link = entry['link'].encode('ascii','xmlcharrefreplace')
-        published = entry['published'].encode('ascii','xmlcharrefreplace')
+        title = entry['title'].encode('ascii','xmlcharrefreplace').decode('utf8')
+        link = entry['link']
+        published = entry['published']
     
         if tooltip is True:
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})    

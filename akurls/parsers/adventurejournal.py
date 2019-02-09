@@ -18,7 +18,6 @@ def adventurejournal(name = 'adventure journal',
             soup = BeautifulSoup(entry['summary_detail']['value'],'html.parser')
             img_src = soup.img['src']
             text = soup.get_text() + '...'
-            text = text
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:

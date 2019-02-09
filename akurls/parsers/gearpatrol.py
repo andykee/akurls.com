@@ -10,15 +10,16 @@ def gearpatrol(name = 'gear patrol',
     d = feedparser.parse(feedurl)
     feed = []
     for entry in d['entries']:
-        title = entry['title'].encode('ascii','xmlcharrefreplace')
-        link = entry['link'].encode('ascii','xmlcharrefreplace')
+        title = entry['title'].encode('ascii','xmlcharrefreplace').decode('utf8')
+
+        link = entry['link']
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
             head, sep, tail = entry['summary'].partition('...')
             soup = BeautifulSoup(head, 'html.parser')
             img_src = entry['media_content'][0]['url']
-            text = soup.p.text.encode('ascii','xmlcharrefreplace')
+            text = soup.text
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:
