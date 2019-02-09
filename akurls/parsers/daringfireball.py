@@ -10,8 +10,10 @@ def daringfireball(name = 'daring fireball',
     d = feedparser.parse(feedurl)
     feed = []
     for entry in d['entries']:
-        title = entry['title'].encode('ascii','xmlcharrefreplace')
-        link = entry['link'].encode('ascii','xmlcharrefreplace')
+        title = entry['title']
+        for l in entry['links']:
+            if l['rel'] == 'related':
+                link = l['href']
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:

@@ -9,13 +9,13 @@ def acquire(name = 'acquire',
     d = feedparser.parse(feedurl)
     feed = []
     for entry in d['entries']:
-        title = entry['title'].encode('ascii','xmlcharrefreplace')
-        link = entry['link'].encode('ascii','xmlcharrefreplace')
+        title = entry['title']
+        link = entry['link']
         published = entry['published']  # can also get published_parsed
 
         if tooltip is True:
-            text = entry['summary'].encode('ascii','xmlcharrefreplace')
-            img_src = entry['media_thumbnail'][0]['url'].encode('ascii','xmlcharrefreplace')
+            text = entry['summary']
+            img_src = entry['media_thumbnail'][0]['url']
             tt = {'img_src':img_src, 'text':text}
             feed.append({'title':title, 'link':link, 'published':published, 'tooltip':tt})
         else:
