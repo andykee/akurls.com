@@ -16,4 +16,4 @@ akurls is a link aggregator that is specifically designed to cut down on the con
 
 4. Copy over .aws/credentials
 
-5. Set up a cronjob
+5. Set up a cronjob by running crontab -e in the terminal
