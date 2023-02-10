@@ -1,8 +1,8 @@
 import feedparser
 
 def eaterla(name = 'eater la',
-        siteurl = 'http://www.la.eater.com',
-        feedurl = 'http://www.la.eater.com/rss/index.xml',
+        siteurl = 'https://la.eater.com',
+        feedurl = 'https://la.eater.com/rss/index.xml',
         limit = 10,
         tooltip = False):
 
